@@ -1,213 +1,102 @@
-# Exno.9-To explore and understand the various prompting techniques used for generating videos through AI models. 
+# Experiment 9: Exploring Prompting Techniques for Video Generation with Product Advertisements (Brand-Specific)
+## Register Number: 212222040173
+## Aim:
 
-## Date: 
-## Register no.: 212222040173
-# Aim: To perform the Exploration of Prompting Techniques for Video Generation
-# Algorithm: 
+To explore how different prompting techniques influence the quality, style, and storytelling of AI-generated product advertisements, using three specific real-world brands.
 
-## Start Simple: 
+## Algorithm / Procedure:
 
-Use basic prompts for general video concepts (subject + action).
-## Add Structure: 
+1. Select three branded products to advertise:
 
-Enhance with scene details (lighting, style, camera angles).
-## Advanced Control:
+   * Nike Running Shoes
+   * Fitbit Smartwatch
+   * Starbucks Premium Coffee
 
-Specify shot sequences, motion, and negative prompts.
-## Optimize Parameters:
+2. Apply three different prompting techniques:
 
-Set duration, FPS, and resolution for quality output.
-## Iterate & Refine:
+   * Simple Prompt
+   * Detailed Prompt
+   * Stylistic Prompt
 
-Adjust prompts based on initial results for precision.
-## 1. Prompt Complexity Spectrum
-Level 1: Basic Prompts (Minimal Guidance)
-## Structure:
+3. Generate videos using AI tools like **Runway Gen-2**, **Pika Labs**, or **Sora**.
 
-"Generate a video of a cat playing in a garden"
+4. Analyze outputs for:
 
-## Output Characteristics:
+   * Visual quality
+   * Brand clarity
+   * Emotional engagement
+   * Product focus
 
-Generic content
-Default style/lighting
-Short duration (2-4 sec)
-Limited camera movement
-Level 2: Structured Prompts (Scene Description)
-## Structure:
-"Create a 10-second video of:
-## Subject:
-    A gray tabby cat
-## Action: 
-    Chasing a red butterfly
-## Environment: 
-    Sunlit flower garden at golden hour
-## Style: 
-    Cinematic close-ups with shallow depth of field"
+## Prompting Techniques & Branded Prompt Examples
 
-## Output Improvements:
+### 🔹 1. Simple Prompting
 
-Specific subject details
-Controlled environment
-Intentional visual style
-Better temporal coherence
-## Level 3: 
-   Advanced Prompts (Directorial Control)
-## Structure:
-     "Generate a 30-second animated sequence:
-Scene 1 (0-10s): Wide shot of cyberpunk city at night, neon lights reflecting on wet pavement
-# Transition: 
-       Quick zoom to...
-Scene 2 (10-20s): Close-up of android's face as eyes glow blue
-# Camera: 
-     Dutch angle with slow dolly movement
-# Style: 
-     Blade Runner aesthetic with cinematic color grading
-# FPS:
-24 for filmic look"
+* Product: Nike Running Shoes
 
-# Output Enhancements:
+* Prompt:
+  *“Create a short advertisement for Nike running shoes.”*
 
-Precise shot composition
-Controlled pacing
-Consistent art direction
-Professional cinematography elements
-2. Key Prompting Techniques
-A. Temporal Chunking
-# Break videos into sequential segments:
+* Purpose:
+  Generate a basic brand-focused video with direct product visuals.
 
-# "Create a 15-second product demo:  
-1. 0-5s: Wide shot showing product in context  
-2. 5-10s: Close-up highlighting key features  
-3. 10-15s: Text overlay with value proposition"
-B. Style Anchoring
-# Reference known media properties:
+* Expected Output:
+  A person running outdoors wearing **Nike shoes**, with brand logos and energetic background music. Text overlay: *“Push Your Pace with Nike.”*
 
-# "Generate in the style of Studio Ghibli:  
-- Hand-painted watercolor backgrounds  
-- Character designs with soft edges  
-- Gentle camera movements  
-- Pastel color palette"
-C. Motion Specification
-# Control movement dynamics:
-
-"Camera: Slow 360° orbit around subject  
-Subject motion: Hair blowing in wind (speed: gentle breeze)  
-Background: Time-lapse clouds moving left-to-right"
-D. Negative Prompting
-# Exclude unwanted elements:
-
-"Exclude:  
-- Watermarks  
-- Low-resolution frames  
-- Uncanny valley effects  
-- Jittery camera movements"
-3. Python Implementation Example
-from diffusers import DiffusionPipeline
-import torch
-
-# class VideoGenerator:
-    def __init__(self, model_name="zeroscope-v2-xl"):
-        self.pipe = DiffusionPipeline.from_pretrained(
-            model_name,
-            torch_dtype=torch.float16
-        ).to("cuda")
-    
-    def generate_video(self, prompt, negative_prompt="", 
-                     num_frames=24, fps=8, steps=30):
-        return self.pipe(
-            prompt,
-            negative_prompt=negative_prompt,
-            num_frames=num_frames,
-            height=576,
-            width=1024,
-            num_inference_steps=steps,
-            guidance_scale=15,
-            fps=fps
-        ).frames[0]
-
-# Usage Examples
-generator = VideoGenerator()
-
-# Basic prompt
-basic_vid = generator.generate_video(
-    "A spaceship flying through space"
-)
-
-# Advanced prompt
-advanced_vid = generator.generate_video(
-    prompt="""Cinematic shot of SpaceX Starship launch:
-             - Camera: Slow-motion tracking from launchpad POV
-             - Details: Visible engine plume dynamics
-             - Atmosphere: Dawn lighting with fog effects""",
-    negative_prompt="low quality, cartoonish, unrealistic",
-    num_frames=48,
-    fps=24,
-    steps=50
-)
-# 4. Prompt Engineering Best Practices
-The 5 W Framework:
-Who/What: Clear subject specification
-Where: Environmental context
-When: Temporal setting
-Why: Purpose/goal of the video
-Technical Parameters:
-{
-  "duration": "15 seconds",
-  "aspect_ratio": "16:9", 
-  "framerate": 24,
-  "style": "hyper-realistic CGI",
-  "lighting": "volumetric god rays"
-}
-Reference Embedding:
-"Visual composition similar to <reference_image.jpg> but with:  
-- Cooler color temperature  
-- More dynamic camera angles  
-- Added futuristic HUD elements"
-Iterative Refinement:
-"Based on output #1 (attached):  
-1. Maintain the excellent lighting  
-2. Increase character detail by 30%  
-3. Smooth the walking animation  
-4. Add falling cherry blossom petals"
-5. Comparative Results Analysis
-Prompt Type	Coherence	Style Accuracy	Runtime	File Size
-Basic	62%	45%	45 sec	3.2 MB
-Structured	78%	68%	2.1 min	7.8 MB
-Advanced	94%	89%	4.5 min	18.2 MB
-Benchmark performed on RunwayML Gen-2 with identical seed values
-
-6. Emerging Techniques
-A. Multi-Modal Prompting
-# Combine:
-
-Text description (this prompt)
-Style reference images (3 samples)
-Audio track (for timing/mood)
-Motion capture data (for animations)
-# B. Interactive Generation
-while not user_satisfied:
-    generated_vid = model.generate(
-        prompt + user_feedback,
-        preview=True
-    )
-    user_feedback = get_user_input()
-# C. Physics-Aware Prompting
-# "Water simulation parameters:  
-- Surface tension: 0.072 N/m  
-- Viscosity: 0.89 mPa·s  
-- Splash particle count: 500-700  
-- Render: Photorealistic fluid dynamics"
-
-
-# Result: 
-The Prompt of the above task executed successfully
+* Observation:
+  The video was product-centric but lacked story or emotion. Works well for short social media ads.
 
 
 
+### 🔹 2. Detailed Prompting
+
+* Product: Fitbit Smartwatch
+
+* Prompt:
+  *“Generate an advertisement for the Fitbit smartwatch. Show a woman jogging at sunrise, checking her heart rate and receiving a motivational alert. Include close-up of the screen and end with the tagline: 'Fitbit – Find Your Strength.'”*
+
+* Purpose:
+  Integrate real usage scenarios and product features in a lifestyle setting.
+
+* Expected Output:
+  Scenes showing jogging, biometric data display, and emotional satisfaction from achieving fitness goals. Strong user connection.
+
+* **Observation:**
+  Highly informative. The storytelling brought out the product's functionality and brand identity clearly.
 
 
 
+### 🔹 3. Stylistic Prompting
 
+* Product: Starbucks Premium Coffee
 
+* Prompt:
+  “Create a cinematic advertisement for Starbucks Premium Coffee. Show slow-motion shots of coffee beans roasting, espresso pouring into a ceramic mug, and soft golden morning light through a kitchen window. Add text: 'Brew Moments That Matter.'”
+
+* Purpose:
+  Use visual storytelling and brand emotion to portray luxury and comfort.
+
+* Expected Output:
+  A warm, rich-toned video with high-quality visuals, ideal for a TV or digital campaign.
+
+* Observation:
+  The video had emotional depth, stunning cinematography, and strong branding—perfect for lifestyle or brand commercials.
+
+## Suggested AI Tools for Video Generation
+
+* Runway Gen-2 – Text-to-video, great for quick prototypes
+* Pika Labs – Stylized animations and cinematic motion
+* Kaiber / Sora (OpenAI) – High-end story-driven visual generation (if available)
+
+## Google Drive:
+https://drive.google.com/drive/folders/13GojLxKHyUDW2JOK6LRFzTZeH8NO6JRT?usp=sharing
+
+## Result:
+
+This experiment showed that:
+* Simple prompts are ideal for short, clear ads.
+* Detailed prompts enable stronger storytelling and product engagement.
+* Stylistic prompts bring emotional resonance and premium brand feel.
+
+Prompt design significantly influences how AI tools represent **brand identity, emotion, and visual appeal** in advertisements.
 
 
