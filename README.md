@@ -88,7 +88,7 @@ To explore how different prompting techniques influence the quality, style, and 
 * Kaiber / Sora (OpenAI) – High-end story-driven visual generation (if available)
 
 ## Google Drive:
-https://drive.google.com/drive/folders/13GojLxKHyUDW2JOK6LRFzTZeH8NO6JRT?usp=sharing
+https://drive.google.com/file/d/1LnJaI0KFWBkEJmLt02ev3ieCM8iGTT4V/view?usp=sharing
 
 ## Result:
 
